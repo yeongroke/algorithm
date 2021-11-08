@@ -1,0 +1,17 @@
+public class Solution5 {
+    static int solution(int[] scores, int k) {
+
+        List<Integer> list = new ArrayList<>();
+        int answer = 0;
+        for(int i=0; i<scores.length-1; i++){
+            list.add(scores[i+1]-scores[i]);
+            answer+=scores[i+1]-scores[i];
+        }
+        list.sort((i,j)->Long.compare(j,i));
+        for(int i=0;i<k-1;i++){
+            answer-=list.get(i);
+        }
+
+        return answer;
+    }
+}
